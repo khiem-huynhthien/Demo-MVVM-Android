@@ -1,0 +1,20 @@
+apply plugin: 'org.jetbrains.kotlinx.kover'
+
+kover {
+    reports {
+        filters {
+            includes {
+                // inclusion rules - classes only those that will be present in reports
+                classes("**.viewmodel.**", "**.usecase.**", "**.repository.**")
+            }
+            excludes {
+                classes("**_**")
+            }
+        }
+        verify {
+            rule {
+                minBound(50)
+            }
+        }
+    }
+}
